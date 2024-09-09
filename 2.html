@@ -1,0 +1,71 @@
+<!doctype html><!--이 파일은 html로 만들어졌다는 의미-->
+<html>
+<head>
+    <title><span style="font-weight:bold;">YOONYOO'S K-FOOD</span>ㅣLOCATION - html</title>
+    <meta charset="utf-8"><!--문자를 깨지지 않게 해주는 문자표현방식, char=character,set=규칙!-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google 지도</title>
+    <style>
+        /* 페이지 전체 크기를 사용하도록 설정 */
+        a{
+            color:black;
+            text-decoration:none;
+        }
+        .button{
+            width:2cm;
+            height:1cm;
+            font-size:larger;
+            border-radius: 100%;
+            background-color:white;
+            color:black;
+            background-color:inherit;
+            color:inherit;
+        }
+        body{
+            background-image: inherit;
+            color: black;
+        }
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script><!--jQuery CDN을 사용하는 방식-->
+    <script src="colors.js"></script>
+
+</head>
+<body>
+    <h1><a style="text-decoration:none" href="1.html">YOONYOO'S K-FOOD</a></h1>
+    <input class="button" type="button" value="night" onclick="
+         nightDayHandler(this)">
+    <li><a style="text-decoration:none" href="1.html">MENU</a></li>
+    <li><a style="text-decoration:none" href="2.html">LOCATION</a></li>
+    <li><a style="text-decoration:none" href="3.html">ABOUT US</a></li><!--Alt누르고 여러줄 선택 동시 입력 가능-->
+         <!-- 지도를 표시할 div 요소 -->
+    <div id="map"></div>
+
+    <!-- Google 지도 JavaScript API를 불러오는 스크립트 -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+    <script>
+        // Google 지도를 초기화하는 함수
+        function initMap() {
+            // 지도를 표시할 위치 좌표를 설정
+            var myLatLng = {lat: 43.65390, lng: -79.38428};
+
+            // 지도 생성 및 표시할 요소를 지정
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: myLatLng, // 초기 중심 좌표 설정
+                zoom: 8 // 초기 줌 레벨 설정
+            });
+
+            // 마커를 생성하여 지도에 추가
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: "YOON'S  K-FOOD" // 마커에 표시할 타이틀
+            });
+        }
+    </script>
+</body>
+</html>
